@@ -19,23 +19,31 @@ $(function () {
   var $start = $('#start-record'),
     $stop = $('#stop-record'),
     $save = $('#save-record'),
+    $play = $('#play-record'),
+    $playWrapper = $('#play-wrapper'),
     $records = $('#records');
 
   var start = function () {
+    recorder && recorder.clear();
     recorder && recorder.record();
 
     $start.attr("disabled", "disabled").text('Идет запись...');
+    $save.attr("disabled", "disabled");
     $stop.removeAttr("disabled");
+    $playWrapper.hide();
   };
 
   var stop = function () {
     recorder && recorder.stop();
 
     $stop.attr("disabled", "disabled");
-    $start.removeAttr("disabled").text('Начать запись')
+    $start.removeAttr("disabled").text('Начать запись');
+    $save.removeAttr("disabled");
+    $playWrapper.show();
   };
 
   var save = function () {
+    $playWrapper.hide();
     var formData = new FormData();
     recorder.exportWAV(function (blob) {
       formData.append('record', blob);
@@ -56,9 +64,21 @@ $(function () {
     })
   };
 
+  var play = function () {
+    recorder.exportWAV(function (wav) {
+      window.URL = window.URL || window.webkitURL;
+      var dataURI = window.URL.createObjectURL(wav);
+      var sound = soundManager.createSound({url : dataURI});
+      $play.attr('disabled', 'disabled');
+
+      sound.play({onfinish : function () {$play.removeAttr('disabled')}})
+    })
+  };
+
   $start.click(start);
   $stop.click(stop);
   $save.click(save);
+  $play.click(play);
 
   try {
     // webkit shim
@@ -90,5 +110,7 @@ $(function () {
         $records.append($('<li></li>').append($('<a></a>').attr('href', record).text(record)))
       }
     }
-  }
+  };
+
+  soundManager.setup({ preferFlash : false })
 });

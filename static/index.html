@@ -20,7 +20,14 @@
 
         <button id="start-record" class="btn btn-primary">Начать запись</button>
         <button id="stop-record" class="btn btn-primary" disabled="disabled">Остановить запись</button>
-        <button class="btn btn-danger" id="save-record">Сохранить запись</button>
+        <button class="btn btn-danger" id="save-record" disabled="disabled">Сохранить запись</button>
+
+        <div class="row" id="play-wrapper" style="display: none">
+          <div class="col-md-12">
+            <button id="play-record" class="btn btn-default"><i class="glyphicon glyphicon-play"></i> Воспроизвести
+            </button>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-md-12">
@@ -37,6 +44,8 @@
 
 <script src="bower_components/jquery/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="scripts/soundmanager/script/soundmanager2-jsmin.js"></script>
 
 <script src="scripts/recorderjs/recorder.js"></script>
 <script src="scripts/main.js"></script>
