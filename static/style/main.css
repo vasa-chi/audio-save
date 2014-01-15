@@ -1,0 +1,12 @@
+.no-getusermedia .need-features {
+  display: none; }
+
+#records li {
+  background-color: transparent;
+  -moz-transition: background-color 2s;
+  -webkit-transition: background-color 2s;
+  -o-transition: background-color 2s;
+  transition: background-color 2s; }
+
+#records li.bold-and-new {
+  background-color: yellow; }

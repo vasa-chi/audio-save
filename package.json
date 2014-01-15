@@ -1,0 +1,15 @@
+{
+  "name": "audio-save",
+  "version": "0.0.0",
+  "description": "PoC. Record WebAudio and save it using form submit",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vasily Chinarev <vasa.chi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.4.8",
+    "glob": "~3.2.8"
+  }
+}

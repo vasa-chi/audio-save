@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style/main.css"/>
+
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <script src="bower_components/modernizr/feature-detects/getusermedia.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron need-features">
+        <h1>Запись звука при помощи HTML5</h1>
+
+        <button id="start-record" class="btn btn-primary">Начать запись</button>
+        <button id="stop-record" class="btn btn-primary" disabled="disabled">Остановить запись</button>
+        <button class="btn btn-danger" id="save-record">Сохранить запись</button>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Записи</h2>
+
+            <ul id="records">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="scripts/recorderjs/recorder.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
